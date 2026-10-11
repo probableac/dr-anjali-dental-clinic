@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "Consultation": {
+      "title": "Consultation",
+      "description": "Booked patient consultation with clinical and sensory preferences",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "patientName": { "type": "string", "minLength": 2, "maxLength": 100 },
+        "patientEmail": { "type": "string", "maxLength": 120 },
+        "patientPhone": { "type": "string", "minLength": 10, "maxLength": 20 },
+        "treatmentId": { "type": "string", "maxLength": 64 },
+        "treatmentName": { "type": "string", "maxLength": 120 },
+        "dentist": { "type": "string", "maxLength": 100 },
+        "date": { "type": "string", "maxLength": 20 },
+        "timeSlot": { "type": "string", "maxLength": 20 },
+        "status": {
+          "type": "string",
+          "enum": ["Confirmed", "Completed", "Rescheduled", "Cancelled"]
+        },
+        "createdAt": { "type": "string" },
+        "specialNotes": { "type": "string", "maxLength": 500 }
+      },
+      "required": ["patientName", "patientPhone", "treatmentId", "dentist", "date", "timeSlot", "status"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Patient review and testimonial for Dr. Anjali Bhardwaj",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "minLength": 2, "maxLength": 80 },
+        "initials": { "type": "string", "maxLength": 10 },
+        "location": { "type": "string", "maxLength": 100 },
+        "treatment": { "type": "string", "maxLength": 100 },
+        "rating": { "type": "number" },
+        "text": { "type": "string", "minLength": 5, "maxLength": 1000 },
+        "date": { "type": "string", "maxLength": 40 },
+        "approved": { "type": "boolean" }
+      },
+      "required": ["name", "treatment", "rating", "text", "approved"]
+    },
+    "Service": {
+      "title": "Service",
+      "description": "Clinical dental service and pricing in INR",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 120 },
+        "category": { "type": "string", "maxLength": 40 },
+        "turnaround": { "type": "string", "maxLength": 40 },
+        "priceStarting": { "type": "number" },
+        "description": { "type": "string", "maxLength": 500 },
+        "gentleFeature": { "type": "string", "maxLength": 300 }
+      },
+      "required": ["name", "category", "priceStarting"]
+    }
+  },
+  "firestore": {
+    "/consultations/{consultationId}": {
+      "schema": { "$ref": "#/entities/Consultation" },
+      "description": "Collection of patient consultations"
+    },
+    "/reviews/{reviewId}": {
+      "schema": { "$ref": "#/entities/Review" },
+      "description": "Collection of patient reviews"
+    },
+    "/services/{serviceId}": {
+      "schema": { "$ref": "#/entities/Service" },
+      "description": "Collection of clinic treatments and pricing"
+    }
+  }
+}

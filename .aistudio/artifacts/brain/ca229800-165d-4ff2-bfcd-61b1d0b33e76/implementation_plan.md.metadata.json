@@ -1,0 +1,6 @@
+{
+  "summary": "Implementation plan for the Admin-only 'Upcoming Appointment' countdown banner on the Home view. It features real-time Firestore sync, dynamic live countdown calculation, one-click WhatsApp and Phone call actions, and direct access to the Admin Portal.",
+  "updatedAt": "2026-10-10T18:32:44.343173924Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

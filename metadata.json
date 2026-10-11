@@ -1,0 +1,6 @@
+{
+  "name": "Serene Dental Studio - Noida",
+  "description": "Boutique sensory dental clinic led by Dr. Anjali Bhardwaj in Sector 18, Noida. DCI & IDA compliant, anxiety-free gentle dentistry with computer-assisted numbing and transparent INR pricing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
